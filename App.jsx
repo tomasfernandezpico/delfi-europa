@@ -918,6 +918,16 @@ export default function App() {
 
   </div>
 ))}
+
+<button
+  onClick={() => setExpanded(null)}
+  style={{
+    fontFamily:F,
+    marginTop:16,
+    background:"none",
+    border:`1px solid ${T.border}`,
+    cursor:"pointer",
+    fontSize:11,
     color:T.inkLight,
     padding:"5px 13px",
     borderRadius:7,
@@ -926,7 +936,6 @@ export default function App() {
 >
   Cerrar
 </button>
-
 </div>
 )}
 </div>

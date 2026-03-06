@@ -937,9 +937,7 @@ export default function App() {
   Cerrar
 </button>
 </div>
-)}
-)
-})}
+))}
 </div>
 </div>
 )}

@@ -885,19 +885,11 @@ export default function App() {
                       </div>
                     )}
                   </div>
-                );
+                )
               })}
             </div>
           </div>
         )}
-
-        {/* ════ ITINERARIO ══════════════════════════════════════════ */}
-        {tab==="Itinerario" && (
-          <div>
-            <PageHead title="Itinerario — La Biblia del Viaje" sm={sm}/>
-            {sm ? (
-              <div style={{display:"flex",flexDirection:"column",gap:8}}>
-                {ITINERARY.map((row,i)=>{
                   const rs=ROW[row.type]||ROW.move;
                   const icon=TRANSPORT_ICON[row.transport]||"·";
                   return (

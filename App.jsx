@@ -857,47 +857,95 @@ export default function App() {
                             <Eyebrow color={T.sand}>Dónde comer</Eyebrow>
                             <div style={{display:"grid",gridTemplateColumns:sm?"1fr":md?"1fr 1fr":"repeat(2,1fr)",gap:10,marginTop:4}}>
                               {c.food.map(place=>(
-                                <div key={place.name} style={{borderRadius:10,border:`1px solid ${place.special?c.accent+"50":T.border}`,overflow:"hidden",background:place.special?c.light:T.surface,position:"relative"}}>
-                                  {place.special && <div style={{position:"absolute",top:10,right:10,background:c.accent,color:"#fff",fontSize:9,padding:"2px 8px",borderRadius:20,fontWeight:700,letterSpacing:0.5}}>TOP ★</div>}
-                                  <div style={{padding:"10px 13px 0",display:"flex",gap:8,alignItems:"flex-start"}}>
-                                    <div style={{flex:1,paddingRight:place.special?40:0}}>
-                                      <div style={{fontSize:13,fontWeight:700,color:T.ink,lineHeight:1.2}}>{place.name}</div>
-                                      <div style={{fontSize:10,color:c.textColor,fontWeight:600,marginTop:2,letterSpacing:0.5}}>{place.type} · {place.price}</div>
-                                    </div>
-                                  </div>
-                                  <div style={{padding:"6px 13px 8px",fontSize:12,color:T.inkMid,lineHeight:1.6}}>{place.desc}</div>
-                                  {place.mustTry && <div style={{margin:"0 13px 6px",fontSize:11,color:c.textColor,fontWeight:700,background:T.surface,padding:"5px 10px",borderRadius:7,border:`1px solid ${c.accent}30`}}>Pedí: {place.mustTry}</div>}
-                                  {place.instagram && (
-                                    <div style={{padding:"2px 13px 11px"}}>
-                                      <a href={place.instagram} target="_blank" rel="noopener noreferrer"
-                                        style={{display:"inline-flex",alignItems:"center",gap:5,fontSize:11,fontWeight:700,color:"#b03580",textDecoration:"none",background:"#fdf0f8",padding:"4px 10px",borderRadius:20,border:"1px solid #f0c0e0"}}>
-                                        <span style={{fontSize:12}}>📸</span> Instagram
-                                      </a>
-                                    </div>
-                                  )}
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        )}
+  <div key={place.name} style={{borderRadius:10,border:`1px solid ${place.special?c.accent+"50":T.border}`,overflow:"hidden",background:place.special?c.light:T.surface,position:"relative"}}>
+  {place.special && <div style={{position:"absolute",top:10,right:10,background:c.accent,color:"#fff",fontSize:9,padding:"2px 8px",borderRadius:20,fontWeight:700,letterSpacing:0.5}}>TOP ★</div>}
+  <div style={{padding:"10px 13px 0",display:"flex",gap:8,alignItems:"flex-start"}}>
+    <div style={{flex:1,paddingRight:place.special?40:0}}>
+      <div style={{fontSize:13,fontWeight:700,color:T.ink,lineHeight:1.2}}>{place.name}</div>
+      <div style={{fontSize:10,color:c.textColor,fontWeight:600,marginTop:2,letterSpacing:0.5}}>
+        {place.type} · {place.price}
+      </div>
+    </div>
+  </div>
 
-                        <button onClick={()=>setExpanded(null)} style={{fontFamily:F,marginTop:16,background:"none",border:`1px solid ${T.border}`,cursor:"pointer",fontSize:11,color:T.inkLight,padding:"5px 13px",borderRadius:7,fontWeight:500}}>Cerrar</button>
-                      </div>
-                    )}
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-        )}
-                  const rs=ROW[row.type]||ROW.move;
-                  const icon=TRANSPORT_ICON[row.transport]||"·";
-                  return (
-                    <div key={i} style={{background:rs.bg,borderLeft:`3px solid ${rs.bar}`,borderRadius:10,padding:"11px 13px",border:`1px solid ${T.borderLight}`}}>
-                      <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:4}}>
-                        <span style={{fontSize:11,fontWeight:700,color:T.inkLight}}>{row.date}</span>
-                        <span style={{background:rs.pBg,color:rs.pTxt,fontSize:10,padding:"2px 8px",borderRadius:20,fontWeight:700}}>{row.time}</span>
-                      </div>
+  <div style={{padding:"6px 13px 8px",fontSize:12,color:T.inkMid,lineHeight:1.6}}>
+    {place.desc}
+  </div>
+
+  {place.mustTry && (
+    <div style={{margin:"0 13px 6px",fontSize:11,color:c.textColor,fontWeight:700,background:T.surface,padding:"5px 10px",borderRadius:7,border:`1px solid ${c.accent}30`}}>
+      Pedí: {place.mustTry}
+    </div>
+  )}
+
+  {place.instagram && (
+    <div style={{padding:"2px 13px 11px"}}>
+      <a
+        href={place.instagram}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          display:"inline-flex",
+          alignItems:"center",
+          gap:5,
+          fontSize:11,
+          fontWeight:700,
+          color:"#b03580",
+          textDecoration:"none",
+          background:"#fdf0f8",
+          padding:"4px 10px",
+          borderRadius:20,
+          border:"1px solid #f0c0e0"
+        }}
+      >
+        <span style={{fontSize:12}}>📸</span> Instagram
+      </a>
+    </div>
+  )}
+</div>
+))}
+
+</div>
+</div>
+)}
+
+<button
+  onClick={()=>setExpanded(null)}
+  style={{
+    fontFamily:F,
+    marginTop:16,
+    background:"none",
+    border:`1px solid ${T.border}`,
+    cursor:"pointer",
+    fontSize:11,
+    color:T.inkLight,
+    padding:"5px 13px",
+    borderRadius:7,
+    fontWeight:500
+  }}
+>
+  Cerrar
+</button>
+
+</div>
+)}
+</div>
+)
+})}
+</div>
+</div>
+)}
+
+const rs=ROW[row.type]||ROW.move;
+const icon=TRANSPORT_ICON[row.transport]||"·";
+return (
+  <div key={i} style={{background:rs.bg,borderLeft:`3px solid ${rs.bar}`,borderRadius:10,padding:"11px 13px",border:`1px solid ${T.borderLight}`}}>
+    <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:4}}>
+      <span style={{fontSize:11,fontWeight:700,color:T.inkLight}}>{row.date}</span>
+      <span style={{background:rs.pBg,color:rs.pTxt,fontSize:10,padding:"2px 8px",borderRadius:20,fontWeight:700}}>
+        {row.time}
+      </span>
+    </div>
                       <div style={{fontSize:12,color:T.inkLight,marginBottom:4}}>{icon} {row.transport} · {row.accommodation}</div>
                       <div style={{fontSize:13,color:T.inkMid,lineHeight:1.5}}>{row.activities}</div>
                     </div>
